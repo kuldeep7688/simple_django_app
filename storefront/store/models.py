@@ -16,8 +16,12 @@ class Promotion(models.Model):
 
 # one to many relationships below 
 class Collection(models.Model):
+    # contains the category types of the product
     title = models.CharField(max_length=255)
-    featured_product = models.ForeignKey("Product", on_delete=models.SET_NULL, null=True, related_name="+")
+    featured_product = models.ForeignKey(
+        "Product", on_delete=models.SET_NULL,
+        null=True, related_name="+"
+    )
 
 
 class Product(models.Model):
