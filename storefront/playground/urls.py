@@ -5,6 +5,6 @@ from . import views
 
 
 # we have here a url configuration module
-urlpatterns = {
+urlpatterns = [
     path("hello/", views.say_hello)
-}
+]

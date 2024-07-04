@@ -33,4 +33,12 @@
 # Django Course Notes
 
 1. views.py : its used as a request handler ; given a request it returns a response
-2. models.py :
+2. models.py : creating the data models for the storing the data
+3. Three fields for identifying the type of object in other app models.py :
+   1. content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+   2. object_id = models.PositiveIntegerField()
+   3. content_object = GenericForeignKey()
+4. Meta to add additional information to the models class like name and indices
+5. query_set types for lookup = https://docs.djangoproject.com/en/5.0/ref/models/querysets/
+6. for field types in creating models : https://docs.djangoproject.com/en/5.0/ref/models/fields/#field-types
+7. Q objects for or queries from data model
