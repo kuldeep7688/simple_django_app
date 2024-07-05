@@ -42,3 +42,7 @@
 5. query_set types for lookup = https://docs.djangoproject.com/en/5.0/ref/models/querysets/
 6. for field types in creating models : https://docs.djangoproject.com/en/5.0/ref/models/fields/#field-types
 7. Q objects for or queries from data model
+8. Serializer : converts a model instance to a dictionary 
+9. Serializer fields : https://www.django-rest-framework.org/api-guide/fields/
+10. HTTP status : https://httpstatuses.io/
+

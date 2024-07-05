@@ -12,6 +12,14 @@ class Collection(models.Model):
     title = models.CharField(max_length=255)
     featured_product = models.ForeignKey(
         'Product', on_delete=models.SET_NULL, null=True, related_name='+')
+    
+    # to change the string representation of an object 
+    def __str__(self) -> str:
+        return self.title
+    
+    # specifying the default ordering 
+    class Meta:
+        ordering = ['title']
 
 
 class Product(models.Model):
@@ -23,6 +31,15 @@ class Product(models.Model):
     last_update = models.DateTimeField(auto_now=True)
     collection = models.ForeignKey(Collection, on_delete=models.PROTECT)
     promotions = models.ManyToManyField(Promotion)
+
+    # to change the string representation of an object 
+    def __str__(self) -> str:
+        return self.title
+    
+    # specifying the default ordering 
+    class Meta:
+        ordering = ['title']
+
 
 
 class Customer(models.Model):
@@ -62,7 +79,7 @@ class Order(models.Model):
 
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.PROTECT)
-    product = models.ForeignKey(Product, on_delete=models.PROTECT)
+    product = models.ForeignKey(Product, on_delete=models.PROTECT, related_name="orderitems")
     quantity = models.PositiveSmallIntegerField()
     unit_price = models.DecimalField(max_digits=6, decimal_places=2)
 

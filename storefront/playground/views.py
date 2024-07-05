@@ -35,8 +35,11 @@ def say_hello(request):
     #     Q(inventory__lt=10) | Q(unit_price__lt=20) 
     # )
     # when inventory == unit_price
-    query_set = Product.objects.filter(
-        inventory=F('unit_price')
-    )
+    # query_set = Product.objects.filter(
+    #     inventory=F('unit_price')
+    # )
+
+    # sorting
+    query_set = Product.objects.order_by('unit_price', "-title")
 
     return render(request, "hello.html", {"name": "kuldeep", "products": list(query_set)})
